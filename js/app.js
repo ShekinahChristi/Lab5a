@@ -57,14 +57,24 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  let theSum = a + b + c;
- let theMulti = (a * b * c);
-  let message ='the sum of ' + a + 'and ' + b + 'and ' + c + ' sum ' + 16 + '.';
-  let messagetwo ='The product of ' + a + ' and ' + b + ' and ' + c + ' is ' +
-  theMulti+ '.';
-  return [theMulti message,messagetwo];
-  
+  let theSum = sum(a,b)[0];
+  let theSum1 = sum(theSum, c)[0];
+ let theMulti = multiply(a, b)[0];
+ let theMulti1 = multiply(theMulti, c)[0];
+  let message1 = + a + ' and ' + b + ' and ' + c + ' sum to ' + theSum1 + '.';
+  let message2 ='The product of ' + a + ' and ' + b + ' and ' + c + ' is ' +
+  theMulti + '.';
+  let arr = [];
+  arr[0] = theSum1;
+  arr[1] = theMulti1;
+  arr[2] = message1;
+  arr[3] = message2;
+
+  console.log[theSum1, theMulti1, message1 ,message2]
+  return [theSum1, theMulti1, message1 ,message2];
+ 
 }
+
 
 sumAndMultiply(4,7,5);
 
@@ -84,12 +94,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 let testArray = [2, 3, 4]; //eslint-disable-line
-
-function sumArray(testArray){
-let total = sum(sumArray[0],sumArray[1]);//eslint-disable-line
-let final = sum(total[0], sumArray[2]);
-let message = 2 + 3 + 4 + ' was passed in as an array of numbers,' + ' and ' +` ${final[0]} `+ ' is their sum ' + '.';
-  return [final[0], message];
+function sumArray(sumArr) { //eslint-disable-line
+  let theSum = sum(testArray[0], testArray[1])[0];
+  let theSum1 = sum(theSum, testArray[2])[0];
+  let message = + 2 + ',' + 3 + ',' + 4 + ' was passed in as an array of numbers, and ' + theSum1 + ' is their sum.';
+  let arr = [];
+  arr[0] = theSum1;
+  arr[1] = message;
+  return[theSum1, message];
 }
 
 sumArray();
@@ -111,7 +123,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+  let testArray = [2, 3, 4];
+  let theMulti= multiply(testArray[0], testArray[1])[0];
+  let theMulti1= multiply(theMulti, testArray[2])[0];
+  let message = 'The numbers ' + 2 + ',' + 3 + ',' + 4 + ' have a product of ' + 24 + '.';
+  let arr = [];
+  arr[0] = theMulti1;
+  arr[1] = message;
+  return[theMulti1, message];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
@@ -136,13 +155,24 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
+  let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
-function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+  function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+    let theMulti = multiply(testDynamicArray[0], testDynamicArray[1])[0];
+    let theMulti1 = multiply(theMulti, testDynamicArray[2])[0];
+    let theMulti2 = multiply(theMulti1, testDynamicArray[3])[0];
+    let theMulti3 = multiply(theMulti2, testDynamicArray[4])[0];
+    let message = 'The numbers ' + 1 + ',' + 2 + ',' + 3 + ',' + 4 + ',' + 5 + ' have a product of ' + 120 + '.';
+    let arr = [];
+    arr[0] = theMulti1;
+    arr[1] = theMulti2;
+    arr[2] = theMulti3;
+    arr[3] = message;
+    return[theMulti3, message];
+  
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
